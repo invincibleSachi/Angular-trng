@@ -1,0 +1,33 @@
+<h4>
+  <p>Count :: {{count}}</p>
+  <p>Count + 1:: {{count+1}}</p>
+  <p> Counter in input</p>
+  <div>
+    <input [value]="count">
+  <input [value]="count+2">
+  <button [disabled]="count%2==0">My Button</button>
+  <button (click)="increment()">+1</button>
+  <button (click)="decrement()">-1</button>
+  </div>
+  <p> Tow way binding [()]</p>
+  <!-- property and event binding
+  ?. is elvis operator for null check
+  () event binding
+  [] property binding
+  [()] property event binding
+  # template referance variable 
+  -->
+  <input name="count1" [(ngModel)]="count"/>
+
+  <p> how [()] works ?</p>
+  <p>branch City {{branchAddress.city}}</p>
+  <p>Address City {{address?.city}}</p>
+  <!--
+    para1 us dom element refers to p tag 
+    your name is dom element refers to input tag
+  -->
+  <p #para1>some text</p>
+  <input #yourName />
+  <p> you entered {{yourName.value}}</p>
+  <button (click)="para1.textContent=yourName.value"> ApplyName</button>
+</h4>

@@ -1,0 +1,30 @@
+<h2>About</h2>
+  
+
+Name
+<input name="member" #nameElement />
+
+<button (click)="addMember(nameElement.value);nameElement.value=''; nameElement.focus(); ">
+  Add
+</button>
+
+<button (click)="empty()">
+  Empty
+</button>
+
+<button (click)="showMembers = !showMembers">
+  Toggle
+</button>
+
+<!-- ng 4.0 onwards, ngIf else -->
+
+<ul  *ngIf="showMembers == true">
+  <li *ngFor="let memberName of members"
+      appHighlight 
+  > 
+      {{memberName}}
+  </li>
+</ul>
+
+
+ 

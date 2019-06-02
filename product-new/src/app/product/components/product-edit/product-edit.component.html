@@ -1,0 +1,64 @@
+<h2>Product Edit {{product.name}}</h2>
+
+
+<p *ngIf="productForm.dirty">
+  Form Data Changed
+</p>
+
+<p *ngIf="productForm.invalid">
+  Invalid Form Data
+</p>
+
+<form (ngSubmit)="save()"  #productForm="ngForm" >
+  Name
+
+  <input name="name"
+         [(ngModel)]="product.name"
+
+         required
+         minlength="2"
+
+         #productName="ngModel"
+  />
+
+  <p *ngIf="productName.dirty"> 
+    Name changed
+  </p>
+
+  <p *ngIf="productName.invalid"> 
+    Invalid name 
+  </p>
+
+  Price 
+  <input name="price"
+         type='number'
+         [(ngModel)]="product.price"
+
+  />
+
+  Year 
+  <input name="year"
+         type='number'
+         [(ngModel)]="product.year"
+
+  />
+
+  Brand
+
+  <select name="brandId"
+          [(ngModel)]="product.brandId">
+      <option *ngFor="let brand of brands$ | async"
+              [value]="brand.id"
+      >
+        {{brand.name}}
+      </option>
+  </select>
+
+  <button type='submit'>Save</button>
+</form>
+
+ 
+<p>Product JSON</p>
+<pre>
+  {{product | json}}
+</pre>
